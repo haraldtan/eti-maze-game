@@ -33,7 +33,7 @@ def configurationMenu():
         input('')
         configurationMenu()
     
-def mainMenu():
+def mainMenu(option):
     #create a function for main menu to allow for repetition 
     print(menu)
     option=input('Enter your option:')
@@ -44,26 +44,26 @@ def mainMenu():
         name=str(input('Enter the name of the data file:'))
         print('Number of lines read:')
         input('')
-        mainMenu()        
+        mainMenu(option)        
     elif option=='2':
         print('Option [2] View Maze')       
         input('')
-        mainMenu()
+        mainMenu(option)
     elif option=='3':
         print('Option [3] Play maze game')
         input('')
-        mainMenu()
+        mainMenu(option)
     elif option=='4':
         print('Option [4] Configure current maze')
         configurationMenu()     
     elif option=='0':
-        print('Bye!')
+        print('Exit')
     else:
         print('Invalid option. Please try again.')
         input('')
-        mainMenu()
+        mainMenu(option)
         
-mainMenu()
+mainMenu('')
 
         
     
