@@ -74,3 +74,5 @@ def mainMenu():
         configurationMenu()
     elif option == 0:
         sys.Exit()
+    else:
+        print('Invalid option. Please try again.')
