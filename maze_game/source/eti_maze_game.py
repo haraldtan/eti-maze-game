@@ -10,59 +10,67 @@ Create passageway \n[3]  Create start point \
 
 def configurationMenu():
     print(configMenu)
-    option=str(input('Enter your option:'))
-    if option=='1':
-        input()
-        configurationMenu()
-    elif option=='2':
-        input()
-        configurationMenu()
-    elif option=='3':
-        input()
-        configurationMenu()
-    elif option=='4':
-        input()
-        configurationMenu()
-    elif option =='0':
-        print()
-        mainMenu()
-    else:   
-        print('Invalid option. Please try again.')
-        input('')
-        configurationMenu()
+    print('Enter your option:')
+    # if option=='1':
+    #     input()
+    #     configurationMenu()
+    # elif option=='2':
+    #     input()
+    #     configurationMenu()
+    # elif option=='3':
+    #     input()
+    #     configurationMenu()
+    # elif option=='4':
+    #     input()
+    #     configurationMenu()
+    # elif option =='0':
+    #     print()
+    #     mainMenu()
+    # else:   
+    #     print('Invalid option. Please try again.')
+    #     input('')
+    #     configurationMenu()
     
+# def mainMenu():
+#     #create a function for main menu to allow for repetition 
+#     print(menu)
+#     option=input('Enter your option: ')
+#     if option==1:
+#         print('Option [1] Read and load maze from file')
+#         # name=str(input('Enter the name of the data file:'))
+#         print('Number of lines read:')
+#         mainMenu()        
+#     elif option=='2':
+#         print('Option [2] View Maze')       
+#         input('')
+#         mainMenu()
+#     elif option=='3':
+#         print('Option [3] Play maze game')
+#         input('')
+#         mainMenu()
+#     elif option=='4':
+#         print('Option [4] Configure current maze')
+#         configurationMenu()
+#     elif option=='0':
+#         print('Exit')
+#     else:
+#         print('Invalid option. Please try again.')
+#         mainMenu()
+# def loadMaze():
+#     print('Option [1] Read and load maze from file')
+
 def mainMenu():
-    #create a function for main menu to allow for repetition 
     print(menu)
-    option=str(input('Enter your option: '))
-    if option=='1':
-        prompt = 'Option [1] Read and load maze from file'
-        print(prompt)
-        return prompt
+    option = input('Enter your option:')
+    if option == 1:
+        print('Option [1] Read and load maze from file')
         name=str(input('Enter the name of the data file:'))
-        print('Number of lines read:')
-        input('')
-        mainMenu()        
-    elif option=='2':
-        print('Option [2] View Maze')       
-        input('')
-        mainMenu()
-    elif option=='3':
+    elif option == 2: 
+        print('Option [2] View Maze')
+    elif option == 3:
         print('Option [3] Play maze game')
-        input('')
-        mainMenu()
-    elif option=='4':
+    elif option == 4:
         print('Option [4] Configure current maze')
         configurationMenu()
-    elif option=='0':
-        print('Exit')
-    else:
-        print('Invalid option. Please try again.')
-        mainMenu()
-        
-mainMenu()
-
-        
-    
-    
-
+    elif option == 0:
+        sys.Exit()
