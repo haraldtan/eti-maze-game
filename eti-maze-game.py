@@ -23,25 +23,25 @@ def mainMenu():
     print()
 
     if option=='1':
-        print('Option 1: Read and load maze from file')
+        print('Option [1] Read and load maze from file')
         print()
         name=str(input('Enter the name of the data file:'))
-        input('')
         print('Number of lines read:')
+        input('')
         mainMenu()
         
     elif option=='2':
-        print('Option 2: View Maze')       
+        print('Option [2] View Maze')       
         input('')
         mainMenu()
 
     elif option=='3':
-        print('Option 3:Play maze game')
+        print('Option [3] Play maze game')
         input('')
         mainMenu()
 
     elif option=='4':
-        print('Option 4: Configure current maze')
+        print('Option [4] Configure current maze')
         configurationMenu()
 
         
@@ -49,7 +49,7 @@ def mainMenu():
         print('Bye!')
 
     else:
-        print('Invalid option.')
+        print('Invalid option. Please try again.')
         input('')
         mainMenu()
         
