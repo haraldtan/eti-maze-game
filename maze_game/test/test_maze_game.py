@@ -1,9 +1,6 @@
 import pytest
-from src.eti_maze_game import eti_maze_game
+from source import eti_maze_game
 
 def test_mainMenu():
-    input_value = 2
-
-    # go about using input() like you normally would:
-    i = input("Enter your option:")
-    assert i == "Mark"
+    output = eti_maze_game.mainMenu()
+    assert output == 'Option [1] Read and load maze from file'
