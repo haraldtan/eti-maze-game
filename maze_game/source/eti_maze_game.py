@@ -1,8 +1,6 @@
 import sys
 import time
-import os
-import csv
-recordsList = []
+
 menu=(' \nMAIN MENU \n=========\
 \n[1]  Read and load maze from file \n[2]  \
 View maze \n[3]  Play maze game \
@@ -15,12 +13,6 @@ Create passageway \n[3]  Create start point \
 
 # Configure Maze Menu
 def configurationMenu():
-    print('Option [4] Configure current maze')
-    print('\n')
-    print('========================================')
-    print('\n')
-    for row in recordsList:
-        print(row)
     print(configMenu)
     option = input("Enter your option: ")
     if option=='1':
@@ -48,21 +40,17 @@ def mainMenu():
     print(menu)
     option = str(input('Enter your option:'))
     selectedOption(option)
-    
-    
+
 # Menu options
 def selectedOption(value):
     if value == '1':
         loadFile()
-        mainMenu()
-        return "Option [1] Read and load maze from file"            
+        return "Option [1] Read and load maze from file"
     elif value == '2': 
-        viewMaze()
-        mainMenu()
+        viewMaze() 
         return "Option [2] View Maze"
     elif value == '3':
         playMaze()
-        mainMenu()
         return "Option [3] Play maze game"
     elif value == '4':
         configurationMenu()
@@ -81,15 +69,11 @@ def selectedOption(value):
 def loadFile():
     print('Option [1] Read and load maze from file')
     name=str(input('Enter the name of the data file:'))
-    if name!='maze.csv':
-            print('Invalid data file.')
-    else:
-        recordsList.clear()
-        checkFile(name)
-        
+    checkFile(name)
 
 # Option 2 (View Maze)
 def viewMaze():
+<<<<<<< HEAD
     print('Option [2] View Maze')   
     if len(recordsList)==0:
         print('No maze loaded.')
@@ -98,30 +82,22 @@ def viewMaze():
         print('\n')
         for row in recordsList:
             print(row)
+=======
+    print('Option [2] View Maze')
+>>>>>>> parent of 22436ac... #2 #3 ready for testing
 
 # Option 3 (Play Maze)
 def playMaze():
     print('Option [3] Play maze game')
-    print('========================================')
-    print('\n')
-    for row in recordsList:
-        print(row)
 
 # Option 4 (Configure Maze)
 def configureMaze():
     print('Option [4] Configure current maze')
-    
     configurationMenu()
 
 # Load maze .csv file
-def checkFile(name):    
-    with open(name,'r') as csv_file:
-        csv_reader =csv.reader(csv_file)
-        for row in csv_reader:
-            recordsList.append(row)
-        records =len(recordsList)
-        print('Number of lines read:',records)     
-            
+def checkFile(file):
+    print(file)
     # return "Read and load maze"
 
 mainMenu()
