@@ -90,11 +90,14 @@ def loadFile():
 
 # Option 2 (View Maze)
 def viewMaze():
-    print('Option [2] View Maze')
-    print('========================================')
-    print('\n')
-    for row in recordsList:
-        print(row)
+    print('Option [2] View Maze')   
+    if len(recordsList)==0:
+        print('No maze loaded.')
+    else:
+        print('========================================')
+        print('\n')
+        for row in recordsList:
+            print(row)
 
 # Option 3 (Play Maze)
 def playMaze():
