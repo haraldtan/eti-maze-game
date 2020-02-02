@@ -13,5 +13,5 @@ def test_loadCapsFile():
     
 def test_correctFile():
     result = loadFile("maze.csv")
-    assert result == 'Valid data file.'
+    assert result == 'Number of lines read: 8'
 

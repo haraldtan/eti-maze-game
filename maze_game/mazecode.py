@@ -37,13 +37,14 @@ def loadFile(filename):
         for row in csv_reader:
             mazeList.append(row)
             lines += 1
-        print("Number of lines read: " + str(lines))
-        return "Valid data file."
+        records=("Number of lines read: " + str(lines))
+        print(records)
+        return records
     except IOError:
         print("Invalid data file.")
         return "Invalid data file."
 
-def checkList(maze):
+def checkFile(maze):
     if not isEmpty(maze):
         loaded = "Maze loaded."
         return (loaded)
@@ -85,7 +86,7 @@ def selectedOption(option, var=''):
         if var =="skip":
             return "Option [2] View Maze"
         print("Option [2] View Maze\n")
-        status = checkList(mazeList)
+        status = checkFile(mazeList)
         if status == "Maze loaded.":
             for row in mazeList:
                 print(row)        
@@ -95,7 +96,7 @@ def selectedOption(option, var=''):
         if var== "skip":
             return "Option [3] Play maze game"
         print("Option [3] Play maze game\n")
-        status = checkList(mazeList)
+        status = checkFile(mazeList)
         if status == "Maze loaded.":
             for row in mazeList:
                 print(row)                         
@@ -105,7 +106,7 @@ def selectedOption(option, var=''):
         if var =="skip":
             return "Option [4] Configure current maze"
         print('Option [4] Configure current maze\n')
-        status = checkList(mazeList)
+        status = checkFile(mazeList)
         if status == "Maze loaded.":
             for row in mazeList:
                 print(row)   
