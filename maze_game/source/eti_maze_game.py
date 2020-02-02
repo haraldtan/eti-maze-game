@@ -73,7 +73,7 @@ def loadFile():
 
 # Option 2 (View Maze)
 def viewMaze():
-<<<<<<< HEAD
+
     print('Option [2] View Maze')   
     if len(recordsList)==0:
         print('No maze loaded.')
@@ -82,9 +82,7 @@ def viewMaze():
         print('\n')
         for row in recordsList:
             print(row)
-=======
-    print('Option [2] View Maze')
->>>>>>> parent of 22436ac... #2 #3 ready for testing
+    print('Option [2] View Maze') #2 #3 ready for testing
 
 # Option 3 (Play Maze)
 def playMaze():
