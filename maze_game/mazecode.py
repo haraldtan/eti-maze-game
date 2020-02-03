@@ -18,12 +18,10 @@ Create passageway \n[3]  Create start point \
 #Display the main menu
 def mainMenu():
     print(menu)
-    return "Menu Displayed"
 
 # Display the configuration menu
 def displayConfigurationMenu():
     print(configMenu)
-    return "Configuration Menu Displayed"
 
 def emptyMaze(mazeList):
     return len(mazeList) == 0
@@ -45,31 +43,10 @@ def loadFile(name):
 
 def checkFile(maze):
     if not emptyMaze(maze):
-        loaded = "Maze loaded."
-        return (loaded)
+        return "Maze loaded."
     else:
-        loaded = "No maze loaded."
-        print (loaded)
-        return (loaded)
-
-def selectedConfigOption(option):
-    if option == "1":
-        return "Configuration Option 1 is selected"
-
-    elif option == "2":
-        return "Configuration Option 2 is selected"
-        
-    elif option == "3":
-        return "Configuration Option 3 is selected"
-
-    elif option == "4":
-        return "Configuration Option 4 is selected"
-        
-    elif option == "0":
-        return False
-    else:
-        print ("Invalid option")
-        return "Invalid Configuration Option"
+        print("No maze loaded.")
+        return "No maze loaded."
 
 def selectedOption(option, var=''):
     if option == "1":
@@ -79,7 +56,6 @@ def selectedOption(option, var=''):
         file = input("Enter the name of the data file: ")
         mazeList.clear()
         loadFile(file)
-        return "Option [1] Read and load maze from file"
 
     elif option == "2":
         if var =="skip":
@@ -89,7 +65,6 @@ def selectedOption(option, var=''):
         if status == "Maze loaded.":
             for row in mazeList:
                 print(row)        
-        return "Option [2] View Maze"
     
     elif option == "3":
         if var== "skip":
@@ -98,8 +73,7 @@ def selectedOption(option, var=''):
         status = checkFile(mazeList)
         if status == "Maze loaded.":
             for row in mazeList:
-                print(row)                         
-        return "Option [3] Play maze game"
+                print(row)                 
     
     elif option == "4":
         if var =="skip":
@@ -110,9 +84,7 @@ def selectedOption(option, var=''):
             for row in mazeList:
                 print(row)   
         displayConfigurationMenu()
-        config_option = input("Enter your option: ")            
-    
-        return "Option [4] Configure current maze"
+        config_option = input("Enter your option: ")   
 
     elif option == "0":
         print("Exit")
@@ -124,4 +96,4 @@ def selectedOption(option, var=''):
 if __name__ == "__main__":
     while x != False:
         mainMenu()
-        x = selectedOption(input ("Enter your option: "))
+        x = selectedOption(input("Enter your option: "))
