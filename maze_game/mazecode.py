@@ -26,7 +26,7 @@ def displayConfigurationMenu():
     print(configMenu)
     return "Configuration Menu Displayed"
 
-def isEmpty(mazeList):
+def emptyMaze(mazeList):
     return len(mazeList) == 0
 
 def loadFile(filename):
@@ -45,7 +45,7 @@ def loadFile(filename):
         return "Invalid data file."
 
 def checkFile(maze):
-    if not isEmpty(maze):
+    if not emptyMaze(maze):
         loaded = "Maze loaded."
         return (loaded)
     else:
@@ -77,8 +77,8 @@ def selectedOption(option, var=''):
         if var=="skip":
             return "Option [1] Read and load maze from file"
         print('Option [1] Read and load maze from file\n')
-        mazeList.clear()
         file = input("Enter the name of the data file: ")
+        mazeList.clear()
         loadFile(file)
         return "Option [1] Read and load maze from file"
 
