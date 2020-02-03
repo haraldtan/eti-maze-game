@@ -16,10 +16,9 @@ Create passageway \n[3]  Create start point \
  \n[4]  Create end point \n \n[0]  Exit to Main Menu\n')
 
 #Display the main menu
-def display_menu(check):
-    if check == True:
-        print(menu)
-        return "Menu Displayed"
+def mainMenu():
+    print(menu)
+    return "Menu Displayed"
 
 # Display the configuration menu
 def displayConfigurationMenu():
@@ -29,9 +28,9 @@ def displayConfigurationMenu():
 def emptyMaze(mazeList):
     return len(mazeList) == 0
 
-def loadFile(filename):
+def loadFile(name):
     try :
-        f = open(filename)
+        f = open(name)
         csv_reader = csv.reader(f,delimiter=',')
         lines = 0
         for row in csv_reader:
@@ -124,5 +123,5 @@ def selectedOption(option, var=''):
     
 if __name__ == "__main__":
     while x != False:
-        display_menu(True)
+        mainMenu()
         x = selectedOption(input ("Enter your option: "))
