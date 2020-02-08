@@ -5,6 +5,8 @@ import csv
 mazeList = []
 x=True
 
+# test commit
+
 menu=(' \nMAIN MENU \n=========\
 \n[1]  Read and load maze from file \n[2]  \
 View maze \n[3]  Play maze game \
