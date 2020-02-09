@@ -5,8 +5,6 @@ import csv
 mazeList = []
 x=True
 
-# test commit
-
 menu=(' \nMAIN MENU \n=========\
 \n[1]  Read and load maze from file \n[2]  \
 View maze \n[3]  Play maze game \
@@ -62,7 +60,7 @@ def selectedOption(option, var=''):
     elif option == "2":
         if var =="skip":
             return "Option [2] View Maze"
-        print("Option [2] View Maze\n")
+        print("Option [2] View Maze\n\n========================================\n")
         status = checkFile(mazeList)
         if status == "Maze loaded.":
             for row in mazeList:
@@ -73,9 +71,27 @@ def selectedOption(option, var=''):
             return "Option [3] Play maze game"
         print("Option [3] Play maze game\n")
         status = checkFile(mazeList)
+        y = True
         if status == "Maze loaded.":
+            print("========================================\n")
             for row in mazeList:
-                print(row)                 
+                print(row)
+            
+        while y != False:
+            
+        
+            if status == "Maze loaded.":
+                  
+                
+                                
+                print ("\nPress 'W' for UP, 'A' for LEFT, 'S' for DOWN, 'D' for RIGHT, 'M' for MENU")
+                choice = input("Select your Move: ")
+                movement = playMaze(choice)
+                y = movement
+            
+            else:
+                break
+            
     
     elif option == "4":
         if var =="skip":
@@ -95,7 +111,140 @@ def selectedOption(option, var=''):
         print ("Invalid option. Please try again.")
         return "Invalid option. Please try again."
     
+
+
+
+    
+def playMaze(choice):
+
+    print("========================================")
+
+    rowN = -1
+    columnN = 0
+    colStart = 0
+    rowStart = 0
+    colEnd = 0
+    rowEnd = 0
+        
+    for item in mazeList:
+        print(item)
+        rowN += 1
+        for value in item:
+            if value == "A":
+                colStart = columnN
+                rowStart = rowN
+            elif value == "B":
+                colEnd = columnN
+                rowEnd = rowN   
+            columnN += 1
+        columnN = 0
+
+    print("\nLocation of Start (A) = (Row " + str(rowStart) + ", Column " + str(colStart) + ")")
+    print("Location of End (B) = (Row " + str(rowEnd) + ", Column " + str(colEnd) + ")")
+
+    while True:
+        move = input("\nPress 'W' for UP, 'A' for LEFT, 'S' for DOWN, 'D' for RIGHT, 'M' for MAIN MENU: ")            
+
+        if move == "W" or move == "w":
+            upRow = rowStart - 1
+            upCol = colStart
+            if upRow > -1:
+                upPos = mazeList[upRow][upCol]
+                if upPos == "O":
+                    print("Move Successful!")
+                    for item in mazeList:
+                        mazeList[upRow][upCol] = "A"
+                        mazeList[rowStart][colStart] = "O"
+                        print(item)
+                    rowStart = upRow
+                    colStart = upCol
+                elif upPos == "B":
+                    print("Congratulations! You have escaped from the maze!")
+                    anykey = input("\nEnter any keys to return to the Main Menu\n")
+                    return False
+                else:
+                    print("Invalid Movement. Please Try again")
+            else:
+                print("Invalid Movement. Please Try again")
+
+        elif move == "A" or move == "a":
+            leftRow = rowStart
+            leftCol = colStart - 1
+            if leftCol > -1:
+                leftPos = mazeList[leftRow][leftCol]
+                if leftPos == "O":
+                    print("Move Successful!")
+                    for item in mazeList:
+                        mazeList[leftRow][leftCol] = "A"
+                        mazeList[rowStart][colStart] = "O"
+                        print(item)
+                    rowStart = leftRow
+                    colStart = leftCol
+                elif leftPos == "B":
+                    print("Congratulations! You have escaped from the maze!")
+                    anykey = input("\nEnter any keys to return to the Main Menu\n")
+                    return False
+                else:
+                    print("Invalid Movement. Please Try again")
+            else:
+                print("Invalid Movement. Please Try again")
+                
+
+        if move == "S" or move == "s":
+            downRow = rowStart + 1
+            downCol = colStart
+            if rowStart < 8:
+                downPos = mazeList[downRow][downCol]
+                if downPos == "O":
+                    print("Move Successful!")
+                    for item in mazeList:
+                        mazeList[downRow][downCol] = "A"
+                        mazeList[rowStart][colStart] = "O"
+                        print(item)
+                    rowStart = downRow
+                    colStart = downCol
+                elif downPos == "B":
+                    print("Congratulations! You have escaped from the maze!")
+                    anykey = input("\nEnter any keys to return to the Main Menu\n")
+                    return False
+                else:
+                    print("Invalid Movement. Please Try again")
+            else:
+                print("Invalid Movement. Please Try again")
+
+        elif move == "D" or move == "d":
+            rightRow = rowStart
+            rightCol = colStart + 1
+            if rightCol < 8:
+                rightPos = mazeList[rightRow][rightCol]
+                if rightPos == "O":
+                    print("Move Successful!")
+                    for item in mazeList:
+                        mazeList[rightRow][rightCol] = "A"
+                        mazeList[rowStart][colStart] = "O"
+                        print(item)
+                    rowStart = rightRow
+                    colStart = rightCol
+                elif rightPos == "B":
+                    print("Congratulations! You have escaped from the maze!")
+                    anykey = input("\nEnter any keys to return to the Main Menu\n")
+                    return False
+                else:
+                    print("Invalid Movement. Please Try again")
+            else:
+                print("Invalid Movement. Please Try again")
+                
+        
+        elif move == "M" or move == "m":
+            return False
+        
+
+        
+
+
+    
 if __name__ == "__main__":
     while x != False:
         mainMenu()
         x = selectedOption(input("Enter your option: "))
+    
